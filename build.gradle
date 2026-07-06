@@ -2,11 +2,11 @@ plugins {
     id 'groovy'
     id 'java-gradle-plugin'
     id 'maven-publish'
-    id 'com.gradle.plugin-publish' version '1.2.1'
+    id 'com.gradle.plugin-publish' version '2.1.1'
 }
 
 group   = 'io.github.ankitt-29.deploy'
-version = '1.0.1'
+version = '1.0.2'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11
@@ -27,6 +27,11 @@ gradlePlugin {
                                   'and verifies each bundle reaches Active state via the Gogo shell before proceeding to the next wave. ' +
                                   'Supports OSGi fragment bundles (Fragment-Host) natively.'
             tags                = ['liferay', 'osgi', 'deploy', 'bundle', 'gogo-shell']
+            compatibility {
+                features {
+                    configurationCache = false
+                }
+            }
         }
     }
 }
